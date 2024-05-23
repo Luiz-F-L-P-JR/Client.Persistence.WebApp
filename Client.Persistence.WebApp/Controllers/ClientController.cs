@@ -5,19 +5,22 @@ namespace Client.Persistence.WebApp.Controllers
     public class ClientController : Controller
     {
         // GET: ClientController
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: ClientController/Details/5
+        [HttpGet]
         public ActionResult Details(int id)
         {
             return View();
         }
 
         // GET: ClientController/Create
-        public ActionResult Create()
+        [HttpGet("Create")]
+        public ActionResult CreateView()
         {
             return View();
         }
@@ -25,7 +28,7 @@ namespace Client.Persistence.WebApp.Controllers
         // POST: ClientController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Core.Client.Model.Client entity)
         {
             try
             {
@@ -38,15 +41,16 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: ClientController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet("Edit")]
+        public ActionResult EditView(int id)
         {
             return View();
         }
 
         // POST: ClientController/Edit/5
-        [HttpPost]
+        [HttpPut]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Core.Client.Model.Client entity)
         {
             try
             {
@@ -59,15 +63,16 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: ClientController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet("Delete")]
+        public ActionResult DeleteView(int id)
         {
             return View();
         }
 
         // POST: ClientController/Delete/5
-        [HttpPost]
+        [HttpDelete]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {

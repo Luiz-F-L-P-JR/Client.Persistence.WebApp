@@ -9,16 +9,22 @@ namespace Client.Persistence.Core.Client.Model
         [DisplayName("Identifier")]
         public int Id { get; set; }
 
-        [Required]
+        [DisplayName("Nome")]
+        [Required(ErrorMessage = "Campo nome é obrigatório.")]
+        [MaxLength(50, ErrorMessage = "Máximo de 50 caracteres.")]
+        [MinLength(3, ErrorMessage = "Mínimo de 2 caracteres.")]
         public string? Name { get; set; }
 
-        [Required]
+        [DisplayName("E-mail")]
+        [Required(ErrorMessage = "Campo e-mail é obrigatório.")]
+        [MaxLength(100, ErrorMessage = "Máximo de 100 caracteres.")]
+        [MinLength(10, ErrorMessage = "Mínimo de 10 caracteres.")]
+        [EmailAddress(ErrorMessage = "Preencha com um email válido")]
         public string? Email { get; set; }
 
-        [Required]
+        [DisplayName("Logotipo")]
         public string? Logo { get; set; }
 
-        [Required]
         public IList<PublicArea.Model.PublicArea>? PublicAreas { get; set; }
 
         public Client()

@@ -5,19 +5,22 @@ namespace Client.Persistence.WebApp.Controllers
     public class PublicAreaController : Controller
     {
         // GET: PublicAreaController
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: PublicAreaController/Details/5
+        [HttpGet]
         public ActionResult Details(int id)
         {
             return View();
         }
 
         // GET: PublicAreaController/Create
-        public ActionResult Create()
+        [HttpGet("Create")]
+        public ActionResult CreateView()
         {
             return View();
         }
@@ -25,7 +28,7 @@ namespace Client.Persistence.WebApp.Controllers
         // POST: PublicAreaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Core.PublicArea.Model.PublicArea entity)
         {
             try
             {
@@ -38,15 +41,16 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: PublicAreaController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet("Edit")]
+        public ActionResult EditView(int id)
         {
             return View();
         }
 
         // POST: PublicAreaController/Edit/5
-        [HttpPost]
+        [HttpPut]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Core.PublicArea.Model.PublicArea entity)
         {
             try
             {
@@ -59,15 +63,16 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: PublicAreaController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet("Delete")]
+        public ActionResult DeleteView(int id)
         {
             return View();
         }
 
         // POST: PublicAreaController/Delete/5
-        [HttpPost]
+        [HttpDelete]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
