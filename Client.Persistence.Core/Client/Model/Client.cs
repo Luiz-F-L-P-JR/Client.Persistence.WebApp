@@ -1,10 +1,11 @@
 ﻿
+using Client.Persistence.Core.Client.Model.Interface;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Client.Persistence.Core.Client.Model
 {
-    public sealed class Client
+    public sealed class Client : IClient
     {
         [DisplayName("Identifier")]
         public int Id { get; set; }

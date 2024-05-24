@@ -1,10 +1,11 @@
 ﻿
+using Client.Persistence.Core.PublicArea.Model.Interface;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Client.Persistence.Core.PublicArea.Model
 {
-    public sealed class PublicArea
+    public sealed class PublicArea : IPublicArea
     {
         [DisplayName("Identifier")]
         public int Id { get; set; }

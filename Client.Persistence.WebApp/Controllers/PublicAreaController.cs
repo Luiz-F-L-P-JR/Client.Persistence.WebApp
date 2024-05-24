@@ -1,14 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Client.Persistence.Core.PublicArea.Service.Interface;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Client.Persistence.WebApp.Controllers
 {
     public class PublicAreaController : Controller
     {
+        private readonly IPublicAreaService? _publicAreaService;
+
+        public PublicAreaController(IPublicAreaService? publicAreaService)
+        {
+            _publicAreaService = publicAreaService;
+        }
+
         // GET: PublicAreaController
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            return View(await _publicAreaService.GetAllAsync());
         }
 
         // GET: PublicAreaController/Details/5
