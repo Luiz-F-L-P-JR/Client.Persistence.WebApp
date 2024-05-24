@@ -4,7 +4,12 @@ using Client.Persistence.WebApp.Extensions.IoC;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddJsonOptions(
+x =>
+{
+    x.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+});
+
 builder.Services.AddDependencyInjection();
 builder.Services.AddExceptionFilterConfiguration();
 
