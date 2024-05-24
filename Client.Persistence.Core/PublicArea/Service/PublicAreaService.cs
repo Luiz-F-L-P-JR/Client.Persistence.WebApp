@@ -14,27 +14,19 @@ namespace Client.Persistence.Core.PublicArea.Service
             _publicAreaRequest = publicAreaRequest;
         }
 
-        public Task CreateAsync(Model.PublicArea entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<Model.PublicArea>> GetAllAsync()
             => await _publicAreaRequest.GetAllAsync();
 
-        public Task<Model.PublicArea> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task CreateAsync(Model.PublicArea entity)
+            => await _publicAreaRequest.CreateAsync(entity);
 
-        public Task UpdateAsync(Model.PublicArea entity)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task DeleteAsync(int id)
+            => await _publicAreaRequest.DeleteAsync(id);
+
+        public async Task<Model.PublicArea> GetAsync(int id)
+            => await _publicAreaRequest.GetAsync(id);
+
+        public async Task UpdateAsync(Model.PublicArea entity)
+            => await _publicAreaRequest.UpdateAsync(entity);
     }
 }

@@ -1,87 +1,82 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Client.Persistence.Core.Client.Service.Interface;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Client.Persistence.WebApp.Controllers
 {
     public class ClientController : Controller
     {
+        private readonly IClientService? _clientservice;
+
         // GET: ClientController
-        [HttpGet]
-        public ActionResult Index()
+        [HttpGet("clientes")]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _clientservice.GetAllAsync());
         }
 
         // GET: ClientController/Details/5
-        [HttpGet]
-        public ActionResult Details(int id)
+        [HttpGet("cliente/detalhe")]
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            return View(await _clientservice.GetAsync(id));
         }
 
         // GET: ClientController/Create
-        [HttpGet("Create")]
-        public ActionResult CreateView()
+        [HttpGet("cliente/adicionar")]
+        public async Task<IActionResult> Create()
         {
             return View();
         }
 
         // POST: ClientController/Create
-        [HttpPost]
+        [HttpPost("cliente/adicionar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Core.Client.Model.Client entity)
+        public async Task<IActionResult> Create(Core.Client.Model.Client entity)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _clientservice.CreateAsync(entity);
+                return await Index();
             }
-            catch
-            {
-                return View();
-            }
+
+            return await Index();
         }
 
         // GET: ClientController/Edit/5
-        [HttpGet("Edit")]
-        public ActionResult EditView(int id)
+        [HttpGet("cliente/editar")]
+        public async Task<IActionResult> Edit()
         {
             return View();
         }
 
         // POST: ClientController/Edit/5
-        [HttpPut]
+        [HttpPut("cliente/editar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Core.Client.Model.Client entity)
+        public async Task<IActionResult> Edit(Core.Client.Model.Client entity)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _clientservice.UpdateAsync(entity);
+                return await Index();
             }
-            catch
-            {
-                return View();
-            }
+
+            return await Index();
         }
 
         // GET: ClientController/Delete/5
-        [HttpGet("Delete")]
-        public ActionResult DeleteView(int id)
+        [HttpGet("cliente/deletar")]
+        public async Task<IActionResult> Delete()
         {
             return View();
         }
 
         // POST: ClientController/Delete/5
-        [HttpDelete]
+        [HttpDelete("cliente/deletar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _clientservice.DeleteAsync(id);
+            return await Index();
         }
     }
 }

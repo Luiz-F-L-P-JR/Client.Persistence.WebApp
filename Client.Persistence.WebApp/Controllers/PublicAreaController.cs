@@ -13,83 +13,75 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: PublicAreaController
-        [HttpGet]
-        public async Task<ActionResult> Index()
+        [HttpGet("logradouro")]
+        public async Task<IActionResult> Index()
         {
             return View(await _publicAreaService.GetAllAsync());
         }
 
         // GET: PublicAreaController/Details/5
-        [HttpGet]
-        public ActionResult Details(int id)
+        [HttpGet("logradouro/detalhe")]
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            return View(await _publicAreaService.GetAsync(id));
         }
 
         // GET: PublicAreaController/Create
-        [HttpGet("Create")]
-        public ActionResult CreateView()
+        [HttpGet("logradoura/adicionar")]
+        public async Task<IActionResult> Create()
         {
             return View();
         }
 
         // POST: PublicAreaController/Create
-        [HttpPost]
+        [HttpPost("logradoura/adicionar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Core.PublicArea.Model.PublicArea entity)
+        public async Task<IActionResult> Create(Core.PublicArea.Model.PublicArea entity)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _publicAreaService.CreateAsync(entity);
+                return await Index();
             }
-            catch
-            {
-                return View();
-            }
+
+            return await Index();
         }
 
         // GET: PublicAreaController/Edit/5
-        [HttpGet("Edit")]
-        public ActionResult EditView(int id)
+        [HttpGet("logradouro/editar")]
+        public async Task<IActionResult> Edit()
         {
             return View();
         }
 
         // POST: PublicAreaController/Edit/5
-        [HttpPut]
+        [HttpPut("logradouro/editar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Core.PublicArea.Model.PublicArea entity)
+        public async Task<IActionResult> Edit(Core.PublicArea.Model.PublicArea entity)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _publicAreaService.UpdateAsync(entity);
+                return await Index();
             }
-            catch
-            {
-                return View();
-            }
+
+            return await Index();
         }
 
         // GET: PublicAreaController/Delete/5
-        [HttpGet("Delete")]
-        public ActionResult DeleteView(int id)
+        [HttpGet("logradouro/deletar")]
+        public async Task<IActionResult> Delete()
         {
             return View();
         }
 
         // POST: PublicAreaController/Delete/5
-        [HttpDelete]
+        [HttpDelete("logradouro/deletar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _publicAreaService.DeleteAsync(id);
+            return await Index();
         }
     }
 }

@@ -1,42 +1,36 @@
-﻿using Client.Persistence.Core.Client.Service.Interface;
+﻿using Client.Persistence.Core.Client.Request.Interface;
+using Client.Persistence.Core.Client.Service.Interface;
 
 namespace Client.Persistence.Core.Client.Service
 {
     public sealed class ClientService : IClientService
     {
-        public Task CreateAsync(Model.Client entity)
+        private readonly IClientRequest? _clientRequest;
+
+        public ClientService(IClientRequest? clientRequest)
         {
-            throw new NotImplementedException();
+            _clientRequest = clientRequest;
         }
 
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Model.Client>> GetAllAsync()
+            => await _clientRequest.GetAllAsync();
 
-        public Task<IEnumerable<Model.Client>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Model.Client>> GetAllWithPublicAreaAsync()
+            => await _clientRequest.GetAllWithPublicAreaAsync();
 
-        public Task<IEnumerable<Model.Client>> GetAllWithPublicAreaAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Model.Client> GetAsync(int id)
+            => await _clientRequest.GetAsync(id);
 
-        public Task<Model.Client> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Model.Client> GetWithPublicAreaAsync(int id)
+            => await _clientRequest.GetWithPublicAreaAsync(id);
 
-        public Task<Model.Client> GetWithPublicAreaAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task CreateAsync(Model.Client entity)
+            => await _clientRequest.CreateAsync(entity);
 
-        public Task UpdateAsync(Model.Client entity)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task UpdateAsync(Model.Client entity)
+            => await _clientRequest.UpdateAsync(entity);
+
+        public async Task DeleteAsync(int id)
+            => await _clientRequest.DeleteAsync(id);
     }
 }

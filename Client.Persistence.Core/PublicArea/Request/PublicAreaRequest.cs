@@ -36,25 +36,33 @@ namespace Client.Persistence.Core.PublicArea.Request
         {
             var uri = $"{await _routeService.GetPublicAreaEndPoint()}/{id}";
             var request = await _httpRequest.GetAsync(uri);
+
+            if (request.IsSuccessStatusCode)
+            {
+                var publicArea = JsonSerializer.Deserialize<Model.PublicArea>(await request.Content.ReadAsStringAsync());
+
+                return publicArea;
+            }
+
             return null;
         }
 
         public async Task CreateAsync(Model.PublicArea publicArea)
         {
             var uri = await _routeService.GetPublicAreaEndPoint();
-            var request = await _httpRequest.PostAsync(uri, publicArea);
+            await _httpRequest.PostAsync(uri, publicArea);
         }
 
         public async Task UpdateAsync(Model.PublicArea publicArea)
         {
             var uri = await _routeService.GetPublicAreaEndPoint();
-            var request = await _httpRequest.PutAsync(uri, publicArea);
+            await _httpRequest.PutAsync(uri, publicArea);
         }
 
         public async Task DeleteAsync(int id)
         {
             var uri = $"{await _routeService.GetPublicAreaEndPoint()}/{id}";
-            var request = await _httpRequest.DeleteAsync(uri);
+            await _httpRequest.DeleteAsync(uri);
         }
     }
 }
