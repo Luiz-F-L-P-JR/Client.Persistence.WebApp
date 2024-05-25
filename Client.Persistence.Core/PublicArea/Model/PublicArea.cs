@@ -11,7 +11,7 @@ namespace Client.Persistence.Core.PublicArea.Model
         public int Id { get; set; }
 
         [DisplayName("Client Identifier")]
-        public int IdCliente { get; set; }
+        public int ClientId { get; set; }
 
         [DisplayName("Cidade")]
         [Required(ErrorMessage = "Campo cidade é obrigatório.")]
@@ -47,7 +47,7 @@ namespace Client.Persistence.Core.PublicArea.Model
             City = publicArea.City;
             State = publicArea.State;
             Address = publicArea.Address;
-            IdCliente = publicArea.IdCliente;
+            ClientId = publicArea.ClientId;
             Neighborhood = publicArea.Neighborhood;
         }
     }

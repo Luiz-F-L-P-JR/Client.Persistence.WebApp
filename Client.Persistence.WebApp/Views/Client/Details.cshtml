@@ -35,46 +35,57 @@
     <a class="btn btn-secondary" asp-action="Index">Voltar</a>
 </div>
 
-<table class="table table-hover">
-    <thead class="thead-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PublicAreas.Select(x => x.Neighborhood))
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublicAreas.Select(x => x.City))
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublicAreas.Select(x => x.State))
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublicAreas.Select(x => x.Address))
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.PublicAreas)
-        {
+@if (Model.PublicAreas.Any()){
+
+    <h3 style="margin-top: 40px;">Logradouros do Cliente</h3>
+
+    <table class="table table-hover" style="margin-top: 40px;">
+        <thead class="thead-dark">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Neighborhood)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>                
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@Model.PublicAreas.Select(x => x.Id)"><span class="fa fa-search"></span></a>
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.PublicAreas.Select(x => x.Id)"><span class="fa fa-pencil-alt"></span></a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.PublicAreas.Select(x => x.Id)"><span class="fa fa-trash"></span></a>
-                </td>
+                <th>
+                    Bairro
+                </th>
+                <th>
+                    Cidade
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Endereço
+                </th>
+                <th>
+                    Identificador do Cliente
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PublicAreas)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Neighborhood)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>                
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientId)
+                    </td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span>Detalhe</a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt">Editar</span></a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span>Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

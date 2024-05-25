@@ -69,7 +69,8 @@ namespace Client.Persistence.Core.Client.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var client = JsonSerializer.Deserialize<Model.Client>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
+                string stringAsync = await request.Content.ReadAsStringAsync();
+                var client = JsonSerializer.Deserialize<Model.Client>(stringAsync, new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return client;
             }
