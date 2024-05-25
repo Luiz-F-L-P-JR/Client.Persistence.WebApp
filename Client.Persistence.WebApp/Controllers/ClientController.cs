@@ -18,7 +18,7 @@ namespace Client.Persistence.WebApp.Controllers
         [HttpGet("cliente/detalhe")]
         public async Task<IActionResult> Details(int id)
         {
-            return View(await _clientservice.GetAsync(id));
+            return View(await _clientservice.GetWithPublicAreaAsync(id));
         }
 
         // GET: ClientController/Create
