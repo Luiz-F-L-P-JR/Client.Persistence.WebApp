@@ -28,3 +28,19 @@ body {
 label.control-label {
     font-weight: 500;
 }
+
+a.btn.btn-primary {
+  margin-top: 15px;
+}
+
+a.btn.btn-secondary {
+  margin-top: 15px;
+}
+
+input.btn.btn-danger {
+  margin-top: 15px;
+}
+
+input.btn.btn-primary {
+  margin-top: 15px;
+}

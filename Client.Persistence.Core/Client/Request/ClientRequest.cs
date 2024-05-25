@@ -24,7 +24,7 @@ namespace Client.Persistence.Core.Client.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var clients = JsonSerializer.Deserialize<IEnumerable<Model.Client>>(await request.Content.ReadAsStringAsync());
+                var clients = JsonSerializer.Deserialize<IEnumerable<Model.Client>>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return clients;
             }
@@ -39,7 +39,7 @@ namespace Client.Persistence.Core.Client.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var clients = JsonSerializer.Deserialize<IEnumerable<Model.Client>>(await request.Content.ReadAsStringAsync());
+                var clients = JsonSerializer.Deserialize<IEnumerable<Model.Client>>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return clients;
             }
@@ -69,7 +69,7 @@ namespace Client.Persistence.Core.Client.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var client = JsonSerializer.Deserialize<Model.Client>(await request.Content.ReadAsStringAsync());
+                var client = JsonSerializer.Deserialize<Model.Client>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return client;
             }

@@ -24,7 +24,7 @@ namespace Client.Persistence.Core.PublicArea.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var publicAreas = JsonSerializer.Deserialize<IEnumerable<Model.PublicArea>>(await request.Content.ReadAsStringAsync());
+                var publicAreas = JsonSerializer.Deserialize<IEnumerable<Model.PublicArea>>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return publicAreas;
             }
@@ -39,7 +39,7 @@ namespace Client.Persistence.Core.PublicArea.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var publicArea = JsonSerializer.Deserialize<Model.PublicArea>(await request.Content.ReadAsStringAsync());
+                var publicArea = JsonSerializer.Deserialize<Model.PublicArea>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return publicArea;
             }

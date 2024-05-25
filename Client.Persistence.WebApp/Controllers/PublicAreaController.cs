@@ -69,10 +69,10 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: PublicAreaController/Delete/5
-        [HttpGet("logradouro/deletar")]
-        public async Task<IActionResult> Delete()
+        [HttpGet("logradouro/deletar"), ActionName("Delete")]
+        public async Task<IActionResult> DeleteView(int id)
         {
-            return View();
+            return View(await _publicAreaService.GetAsync(id));
         }
 
         // POST: PublicAreaController/Delete/5
