@@ -7,6 +7,11 @@ namespace Client.Persistence.WebApp.Controllers
     {
         private readonly IClientService? _clientservice;
 
+        public ClientController(IClientService? clientservice)
+        {
+            _clientservice = clientservice;
+        }
+
         // GET: ClientController
         [HttpGet("clientes")]
         public async Task<IActionResult> Index()
@@ -44,9 +49,9 @@ namespace Client.Persistence.WebApp.Controllers
 
         // GET: ClientController/Edit/5
         [HttpGet("cliente/editar")]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            return View(await _clientservice.GetAsync(id));
         }
 
         // POST: ClientController/Edit/5
@@ -64,10 +69,10 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // GET: ClientController/Delete/5
-        [HttpGet("cliente/deletar")]
-        public async Task<IActionResult> Delete()
+        [HttpGet("cliente/deletar"), ActionName("Delete")]
+        public async Task<IActionResult> DeleteView(int id)
         {
-            return View();
+            return View(await _clientservice.GetAsync(id));
         }
 
         // POST: ClientController/Delete/5

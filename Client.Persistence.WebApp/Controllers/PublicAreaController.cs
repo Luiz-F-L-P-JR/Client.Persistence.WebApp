@@ -49,9 +49,9 @@ namespace Client.Persistence.WebApp.Controllers
 
         // GET: PublicAreaController/Edit/5
         [HttpGet("logradouro/editar")]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            return View(await _publicAreaService.GetAsync(id));
         }
 
         // POST: PublicAreaController/Edit/5
