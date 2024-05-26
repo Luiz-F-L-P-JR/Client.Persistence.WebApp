@@ -25,9 +25,3 @@ $(document).ready(function () {
         ]
     });
 });
-
-$(document).ready(function () {
-    $.post("cliente/adicionar", function (data) {
-        let test = data;
-    });
-});
