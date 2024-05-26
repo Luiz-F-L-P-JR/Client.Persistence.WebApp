@@ -47,7 +47,7 @@ namespace Client.Persistence.WebApp.Extensions.IoC
                 return router;
             });
 
-            #endregion            
+            #endregion
         }
     }
 }

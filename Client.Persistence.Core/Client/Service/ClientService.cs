@@ -15,9 +15,6 @@ namespace Client.Persistence.Core.Client.Service
         public async Task<IEnumerable<Model.Client>> GetAllAsync()
             => await _clientRequest.GetAllAsync();
 
-        public async Task<IEnumerable<Model.Client>> GetAllWithPublicAreaAsync()
-            => await _clientRequest.GetAllWithPublicAreaAsync();
-
         public async Task<Model.Client> GetAsync(int id)
             => await _clientRequest.GetAsync(id);
 

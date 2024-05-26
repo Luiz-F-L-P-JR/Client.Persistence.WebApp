@@ -10,9 +10,4 @@
     <ProjectReference Include="..\Client.Persistence.Infra\Client.Persistence.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Generics\Request\Interface\" />
-    <Folder Include="Generics\Service\Interface\" />
-  </ItemGroup>
-
 </Project>
