@@ -10,4 +10,9 @@
     <ProjectReference Include="..\Client.Persistence.Core\Client.Persistence.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Client\" />
+    <Folder Include="Views\PublicArea\" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,57 @@
+﻿@model PersistenceViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Adicionar Cliente</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Client.Name" class="control-label"></label>
+                <input placeholder="Insira seu nome aqui, ex: (Rita)" asp-for="Client.Name" class="form-control" />
+                <span asp-validation-for="Client.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Email" class="control-label"></label>
+                <input placeholder="Insira seu e-mail aqui, ex: (exemple@exemple.com)" asp-for="Client.Email" class="form-control" />
+                <span asp-validation-for="Client.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Logo" class="control-label"></label>
+                <input type="file" name="file" class="form-control" />
+                <span asp-validation-for="Client.Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicArea.Address" class="control-label"></label>
+                <input placeholder="Insira o endereço." asp-for="PublicArea.Address" class="form-control" />
+                <span asp-validation-for="PublicArea.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicArea.Neighborhood" class="control-label"></label>
+                <input placeholder="Insira o bairro." asp-for="PublicArea.Neighborhood" class="form-control" />
+                <span asp-validation-for="PublicArea.Neighborhood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicArea.City" class="control-label"></label>
+                <input placeholder="Insira a cidade." asp-for="PublicArea.City" class="form-control" />
+                <span asp-validation-for="PublicArea.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicArea.State" class="control-label"></label>
+                <input placeholder="Insira o estado." asp-for="PublicArea.State" class="form-control" />
+                <span asp-validation-for="PublicArea.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

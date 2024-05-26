@@ -1,7 +1,17 @@
+using Client.Persistence.WebApp.Extensions.ExceptionFilter;
+using Client.Persistence.WebApp.Extensions.IoC;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddJsonOptions(
+x =>
+{
+    x.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+});
+
+builder.Services.AddDependencyInjection();
+builder.Services.AddExceptionFilterConfiguration();
 
 var app = builder.Build();
 
@@ -22,6 +32,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();

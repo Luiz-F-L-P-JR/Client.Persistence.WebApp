@@ -15,24 +15,30 @@
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5279",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ROUTE": "https://localhost:5069/api",
+        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogSnIiLCJyb2xlIjoiTWVuYWdlciIsIm5iZiI6MTcxNjY5MDI3MiwiZXhwIjoxNzE2Nzc2NjcyLCJpYXQiOjE3MTY2OTAyNzJ9.8gtBic8TQqlFud-H4ZC7MEmDoYNKrJiZYfeFJEkE7s4"
       }
     },
-    "https": {
+    "Client.Persistence.WebApp": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7247;http://localhost:5279",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ROUTE": "https://localhost:5069/api",
+        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogSnIiLCJyb2xlIjoiTWVuYWdlciIsIm5iZiI6MTcxNjY5MDI3MiwiZXhwIjoxNzE2Nzc2NjcyLCJpYXQiOjE3MTY2OTAyNzJ9.8gtBic8TQqlFud-H4ZC7MEmDoYNKrJiZYfeFJEkE7s4"
       }
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ROUTE": "https://localhost:5069/api",
+        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogSnIiLCJyb2xlIjoiTWVuYWdlciIsIm5iZiI6MTcxNjY5MDI3MiwiZXhwIjoxNzE2Nzc2NjcyLCJpYXQiOjE3MTY2OTAyNzJ9.8gtBic8TQqlFud-H4ZC7MEmDoYNKrJiZYfeFJEkE7s4"
       }
-    }
+    },
   }
 }
