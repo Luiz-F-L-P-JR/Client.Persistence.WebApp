@@ -1,4 +1,5 @@
 ﻿using Client.Persistence.Core.Client.Service.Interface;
+using Client.Persistence.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Client.Persistence.WebApp.Controllers
@@ -36,15 +37,13 @@ namespace Client.Persistence.WebApp.Controllers
         // POST: ClientController/Create
         [HttpPost("cliente/adicionar")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Core.Client.Model.Client entity)
+        public async Task<IActionResult> Create(PersistenceViewModel entity)
         {
-            if (ModelState.IsValid)
-            {
-                await _clientservice.CreateAsync(entity);
-                return await Index();
-            }
+            entity.Client.PublicAreas.Add(entity.PublicArea);
 
-            return await Index();
+            await _clientservice.CreateAsync(entity?.Client);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ClientController/Edit/5
@@ -59,24 +58,20 @@ namespace Client.Persistence.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Core.Client.Model.Client entity)
         {
-            if (ModelState.IsValid)
-            {
-                await _clientservice.UpdateAsync(entity);
-                return await Index();
-            }
+            await _clientservice.UpdateAsync(entity);
 
-            return await Index();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ClientController/Delete/5
-        [HttpGet("cliente/deletar"), ActionName("Delete")]
+        [HttpGet, ActionName("Delete")]
         public async Task<IActionResult> DeleteView(int id)
         {
             return View(await _clientservice.GetAsync(id));
         }
 
         // POST: ClientController/Delete/5
-        [HttpDelete("cliente/deletar")]
+        [HttpDelete, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {

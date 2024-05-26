@@ -44,3 +44,7 @@ input.btn.btn-danger {
 input.btn.btn-primary {
   margin-top: 15px;
 }
+
+label.control-label {
+  margin-bottom: 10px;
+}

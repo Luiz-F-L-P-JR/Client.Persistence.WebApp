@@ -54,7 +54,7 @@ namespace Client.Persistence.Core.Client.Request
 
             if (request.IsSuccessStatusCode)
             {
-                var client = JsonSerializer.Deserialize<Model.Client>(await request.Content.ReadAsStringAsync());
+                var client = JsonSerializer.Deserialize<Model.Client>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
 
                 return client;
             }
@@ -80,19 +80,19 @@ namespace Client.Persistence.Core.Client.Request
 
         public async Task CreateAsync(Model.Client entity)
         {
-            var uri = await _routeService.GetPublicAreaEndPoint();
+            var uri = await _routeService.GetClientEndPoint();
             await _httpRequest.PostAsync(uri, entity);
         }
 
         public async Task DeleteAsync(int id)
         {
-            var uri = $"{await _routeService.GetPublicAreaEndPoint()}/{id}";
+            var uri = $"{await _routeService.GetClientEndPoint()}/{id}";
             await _httpRequest.DeleteAsync(uri);
         }
 
         public async Task UpdateAsync(Model.Client entity)
         {
-            var uri = await _routeService.GetPublicAreaEndPoint();
+            var uri = await _routeService.GetClientEndPoint();
             await _httpRequest.PutAsync(uri, entity);
         }
     }

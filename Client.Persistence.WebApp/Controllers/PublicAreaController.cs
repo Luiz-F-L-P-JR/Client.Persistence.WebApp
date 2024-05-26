@@ -76,7 +76,7 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // POST: PublicAreaController/Delete/5
-        [HttpDelete("logradouro/deletar")]
+        [HttpDelete("logradouro/deletar"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
