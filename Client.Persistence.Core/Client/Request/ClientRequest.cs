@@ -32,21 +32,6 @@ namespace Client.Persistence.Core.Client.Request
             return null;
         }
 
-        public async Task<IEnumerable<Model.Client>> GetAllWithPublicAreaAsync()
-        {
-            var uri = $"{await _routeService.GetClientEndPoint()}/PublicArea";
-            var request = await _httpRequest.GetAsync(uri);
-
-            if (request.IsSuccessStatusCode)
-            {
-                var clients = JsonSerializer.Deserialize<IEnumerable<Model.Client>>(await request.Content.ReadAsStringAsync(), new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
-
-                return clients;
-            }
-
-            return null;
-        }
-
         public async Task<Model.Client> GetAsync(int id)
         {
             var uri = $"{await _routeService.GetClientEndPoint()}/{id}";

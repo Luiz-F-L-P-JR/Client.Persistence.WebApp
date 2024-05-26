@@ -5,6 +5,8 @@
 
 
 $(document).ready(function () {
+    $.fn.dataTable.ext.errMode = 'none';
+
     $('#client-table').DataTable({
         columnDefs: [
             {
@@ -16,6 +18,8 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    $.fn.dataTable.ext.errMode = 'none';
+    
     $('#publicArea-table').DataTable({
         columnDefs: [
             {
@@ -24,4 +28,5 @@ $(document).ready(function () {
             }
         ]
     });
-});
+}); 
+
