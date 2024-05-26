@@ -18,6 +18,9 @@ namespace Client.Persistence.Infra.HttpRequestConfiguration
         {
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
 
+            httpRequestMessage?.Headers.Add("Accept", "application/json");
+            httpRequestMessage?.Headers.Add("Authorization", Environment.GetEnvironmentVariable("TOKEN"));
+
             var response = await _httpClient.SendAsync(httpRequestMessage);
 
             return response;
@@ -37,6 +40,9 @@ namespace Client.Persistence.Infra.HttpRequestConfiguration
         {
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, uri);
 
+            httpRequestMessage?.Headers.Add("Accept", "application/json");
+            httpRequestMessage?.Headers.Add("Authorization", Environment.GetEnvironmentVariable("TOKEN"));
+
             var response = await _httpClient.SendAsync(httpRequestMessage);
 
             return response;
@@ -48,6 +54,9 @@ namespace Client.Persistence.Infra.HttpRequestConfiguration
             {
                 Content = new StringContent(JsonSerializer.Serialize(item), Encoding.UTF8, "application/json")
             };
+
+            httpRequestMessage?.Headers.Add("Accept", "application/json");
+            httpRequestMessage?.Headers.Add("Authorization", Environment.GetEnvironmentVariable("TOKEN"));
 
             var response = await _httpClient.SendAsync(httpRequestMessage);
 
