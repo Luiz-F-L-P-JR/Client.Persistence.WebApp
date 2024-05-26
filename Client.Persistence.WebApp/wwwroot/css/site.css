@@ -48,3 +48,7 @@ input.btn.btn-primary {
 label.control-label {
   margin-bottom: 10px;
 }
+
+h1.display-4 {
+    margin-top: 300px;
+}
