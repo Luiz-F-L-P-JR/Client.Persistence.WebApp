@@ -38,13 +38,12 @@ namespace Client.Persistence.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Core.PublicArea.Model.PublicArea entity)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid){
                 await _publicAreaService.CreateAsync(entity);
-                return await Index();
+                return RedirectToAction(nameof(Index));
             }
-
-            return await Index();
+            else
+                return View("Error");
         }
 
         // GET: PublicAreaController/Edit/5
@@ -55,17 +54,16 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // POST: PublicAreaController/Edit/5
-        [HttpPut("logradouro/editar")]
+        [HttpPost("logradouro/editar")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Core.PublicArea.Model.PublicArea entity)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid){
                 await _publicAreaService.UpdateAsync(entity);
-                return await Index();
+                return RedirectToAction(nameof(Index));
             }
-
-            return await Index();
+            else
+                return View("Error");
         }
 
         // GET: PublicAreaController/Delete/5
@@ -76,12 +74,16 @@ namespace Client.Persistence.WebApp.Controllers
         }
 
         // POST: PublicAreaController/Delete/5
-        [HttpDelete("logradouro/deletar"), ActionName("Delete")]
+        [HttpPost("logradouro/deletar"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _publicAreaService.DeleteAsync(id);
-            return await Index();
+            if(ModelState.IsValid){
+                await _publicAreaService.DeleteAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return View("Error");
         }
     }
 }

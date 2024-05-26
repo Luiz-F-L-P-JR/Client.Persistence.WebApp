@@ -47,11 +47,13 @@ namespace Client.Persistence.WebApp.Controllers
             var name = await SaveFile(file);
             entity.Client.Logo = name;
 
-            entity.Client.PublicAreas.Add(entity.PublicArea);
-
-            await _clientservice.CreateAsync(entity?.Client);
-
-            return RedirectToAction(nameof(Index));
+            if(ModelState.IsValid){
+                entity.Client.PublicAreas.Add(entity.PublicArea);
+                await _clientservice.CreateAsync(entity?.Client);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return View("Error");
         }
 
         // GET: ClientController/Edit/5
@@ -68,29 +70,33 @@ namespace Client.Persistence.WebApp.Controllers
         {
             string filePathName = $"{_filePath}\\images\\{entity.Logo}";
 
-            if (System.IO.File.Exists(filePathName))
-                System.IO.File.Delete(filePathName);
+            if (!System.IO.File.Exists(filePathName)){
 
-            if (!isValidImage(file))
-                return View(entity);
+                if (!isValidImage(file))
+                    return View(entity);
 
-            var name = await SaveFile(file);
-            entity.Logo = name;
+                var name = await SaveFile(file);
+                entity.Logo = name;
+            }            
 
-            await _clientservice.UpdateAsync(entity);
+            if (ModelState.IsValid){
+                await _clientservice.UpdateAsync(entity);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return View("Error");
 
-            return RedirectToAction(nameof(Index));
         }
 
         // GET: ClientController/Delete/5
-        [HttpGet, ActionName("Delete")]
+        [HttpGet("cliente/deletar"), ActionName("Delete")]
         public async Task<IActionResult> DeleteView(int id)
         {
             return View(await _clientservice.GetAsync(id));
         }
 
         // POST: ClientController/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost("cliente/deletar"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
@@ -100,8 +106,12 @@ namespace Client.Persistence.WebApp.Controllers
             if(System.IO.File.Exists(filePathName))
                 System.IO.File.Delete(filePathName);
 
-            await _clientservice.DeleteAsync(id);
-            return await Index();
+            if(ModelState.IsValid){
+                await _clientservice.DeleteAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return View("Error");
         }
 
         private bool isValidImage(IFormFile file)
