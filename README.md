@@ -46,7 +46,7 @@ dotnet restore
 dotnet run
 ```
 
-2. O projeto estará acessível nas rotas indicadas no arquivo `launchSettings.json` utilize `http://localhost:` e a número da porta.
+2. O projeto estará acessível nas rotas indicadas no arquivo `launchSettings.json`, utilize `http://localhost:` e a número da porta.
 
 ## Contribuindo
 
