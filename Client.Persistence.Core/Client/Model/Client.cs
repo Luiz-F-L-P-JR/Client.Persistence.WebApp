@@ -13,7 +13,7 @@ namespace Client.Persistence.Core.Client.Model
         [DisplayName("Nome")]
         [Required(ErrorMessage = "Campo nome é obrigatório.")]
         [MaxLength(50, ErrorMessage = "Máximo de 50 caracteres.")]
-        [MinLength(3, ErrorMessage = "Mínimo de 2 caracteres.")]
+        [MinLength(3, ErrorMessage = "Mínimo de 3 caracteres.")]
         public string? Name { get; set; }
 
         [DisplayName("E-mail")]

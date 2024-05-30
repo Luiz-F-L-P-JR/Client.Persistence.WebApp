@@ -17,7 +17,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ROUTE": "https://localhost:5069/api",
-        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogSnIiLCJyb2xlIjoiTWVuYWdlciIsIm5iZiI6MTcxNjY5MDI3MiwiZXhwIjoxNzE2Nzc2NjcyLCJpYXQiOjE3MTY2OTAyNzJ9.8gtBic8TQqlFud-H4ZC7MEmDoYNKrJiZYfeFJEkE7s4"
+        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUGFpIiwicm9sZSI6Ik1lbmFnZXIiLCJuYmYiOjE3MTY4OTI2NTksImV4cCI6MTcxNjk3OTA1OSwiaWF0IjoxNzE2ODkyNjU5fQ.xNvKumziZpLaFN9X6THtz-xgEtlvuwoW0v04gbfLhOI"
       }
     },
     "Client.Persistence.WebApp": {
@@ -28,7 +28,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ROUTE": "https://localhost:5069/api",
-        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogSnIiLCJyb2xlIjoiTWVuYWdlciIsIm5iZiI6MTcxNjY5MDI3MiwiZXhwIjoxNzE2Nzc2NjcyLCJpYXQiOjE3MTY2OTAyNzJ9.8gtBic8TQqlFud-H4ZC7MEmDoYNKrJiZYfeFJEkE7s4"
+        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUGFpIiwicm9sZSI6Ik1lbmFnZXIiLCJuYmYiOjE3MTY4OTI2NTksImV4cCI6MTcxNjk3OTA1OSwiaWF0IjoxNzE2ODkyNjU5fQ.xNvKumziZpLaFN9X6THtz-xgEtlvuwoW0v04gbfLhOI"
       }
     },
     "IIS Express": {
@@ -37,7 +37,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ROUTE": "https://localhost:5069/api",
-        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogSnIiLCJyb2xlIjoiTWVuYWdlciIsIm5iZiI6MTcxNjY5MDI3MiwiZXhwIjoxNzE2Nzc2NjcyLCJpYXQiOjE3MTY2OTAyNzJ9.8gtBic8TQqlFud-H4ZC7MEmDoYNKrJiZYfeFJEkE7s4"
+        "TOKEN": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikx1aXogUGFpIiwicm9sZSI6Ik1lbmFnZXIiLCJuYmYiOjE3MTY4OTI2NTksImV4cCI6MTcxNjk3OTA1OSwiaWF0IjoxNzE2ODkyNjU5fQ.xNvKumziZpLaFN9X6THtz-xgEtlvuwoW0v04gbfLhOI"
       }
     },
   }
